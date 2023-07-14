@@ -1,0 +1,46 @@
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 4.5rem;
+  border: 1px solid var(--transparent-black);
+  background-color: var(--color-background-light);
+  color: var(--transparent-black);
+}
+.navbar-logo {
+  height: 3.5rem;
+  width: 2.5rem;
+  background-size: contain;
+}
+.navbar-darkBg-color {
+  background-color: var(--navcolor-background-dark);
+  color: var(--color-text-light);
+  border-bottom: 1px solid var(--color-text-secondary);
+}
+.navbar-container h3 {
+  font-size: 22px;
+  font-weight: 600;
+}
+.search-container {
+  position: relative;
+}
+.search-container span {
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  font-size: 1.8rem;
+  color: var(--transparent-black);
+}
+.search-container input {
+  min-width: 37rem;
+  padding: 3px 30px 3px 10px;
+  font-size: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  outline-color: var(--blueviolet);
+  border: 1px solid var(--gray);
+  border-radius: 3px;
+}
+.navbar-container p {
+  font-size: 1.8rem;
+  cursor: pointer;
+}

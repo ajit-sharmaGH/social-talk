@@ -1,0 +1,124 @@
+.login-form-img {
+    height: 5.5rem;
+    width: 7rem;
+    background-size: contain;
+}
+
+.login-body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.login-form-section-one {
+    max-width: 40%;
+}
+
+.login-form-section-two {
+    /* border: 1px solid black; */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* min-width: 40%; */
+    margin-left: 3rem;
+    /* padding: 3rem 2rem; */
+    box-shadow: 0px 0px 8px var(--gray);
+    border-radius: 10px;
+    height: 70vh;
+    width: 530px;
+    overflow: hidden;
+}
+
+.login-form-section-two span {
+    position: absolute;
+    right: 3.5rem;
+    top: 2.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.signup-form-container,
+.login-form-container {
+    /* position: relative; */
+    position: absolute;
+    /* top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+    width: 450px;
+    display: flex;
+    /* left:300px; */
+    flex-direction: column;
+    transition: 0.5s;
+}
+
+.signup-form-container h3,
+.login-form-container h3 {
+    font-size: 2rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.signup-form-container input,
+.login-form-container input {
+    width: 100%;
+    padding: 5px 30px 5px 5px;
+    margin: 0.5rem 0;
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    outline-color: var(--blueviolet);
+
+    border: 1px solid var(--gray);
+    border-radius: 2px;
+}
+
+.signup-form-container button,
+.login-form-container button {
+    padding: 5px 0;
+    margin: 0.5rem 0;
+    border: none;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    font-size: 1.2rem;
+    border-radius: 2px;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+.signup-form-container p,
+.login-form-container p {
+    text-align: center;
+    font-size: 1.3rem;
+    cursor: pointer;
+    margin: 2rem 0 0.5rem 0;
+}
+
+.login-form-section-one h3 {
+    font-size: 3rem;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    letter-spacing: 2px;
+}
+
+.login-form-section-one p {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.password-input-box {
+    position: relative;
+}
+
+.fill-eye-icon {
+    position: absolute;
+    font-size: 1.2rem;
+    right: 5px;
+    top: 13px;
+}
+
+.fill-eye-icon-in-darkBg {
+    color: var(--dark-primary);
+}
