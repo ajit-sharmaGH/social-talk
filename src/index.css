@@ -269,7 +269,9 @@ li {
 .fw-800 {
   font-weight: 800;
 }
-
+.fs-large{
+  font-size:22px;
+}
 .fs-small {
   font-size: 13px;
 }
