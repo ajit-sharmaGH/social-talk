@@ -6,6 +6,7 @@ import App from "./App";
 import { makeServer } from "./server";
 import { ThemeContextProvider } from "./Context/ThemeContext";
 import { AuthContextProvider } from "./Context/AuthContext";
+import { MainContextProvider } from "./Context/MainContext";
 
 // Call make Server
 makeServer();
@@ -14,9 +15,11 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <AuthContextProvider>
-        <ThemeContextProvider>
-          <App />
-        </ThemeContextProvider>
+        <MainContextProvider>
+          <ThemeContextProvider>
+            <App />
+          </ThemeContextProvider>
+        </MainContextProvider>
       </AuthContextProvider>
     </Router>
   </React.StrictMode>,

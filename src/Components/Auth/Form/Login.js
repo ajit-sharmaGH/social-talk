@@ -6,20 +6,48 @@ import {
   BsFillEyeSlashFill,
 } from "react-icons/bs";
 import { BiSolidMoon } from "react-icons/bi";
-import { FaRegHandPointRight,FaRegHandPointLeft } from "react-icons/fa";
+import { FaRegHandPointRight, FaRegHandPointLeft } from "react-icons/fa";
 import { useTheme } from "../../../Context/ThemeContext";
 import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import { LoginUser } from "../../../Context/LoginCheck.js";
+import { useAuth } from "../../../Context/AuthContext";
+import { Signup } from "./Signup";
 const Login = () => {
   const { theme, modifyTheme } = useTheme();
   const [showPassword, setShowPassword] = useState(false);
   const [loginLeft, setLoginLeft] = useState("40px");
   const [signupLeft, setSignupLeft] = useState("600px");
 
+  const [login, setLogin] = useState({
+    username: "",
+    password: "",
+  });
+
+  const { LoginUser } = useAuth();
+  const { username, password } = login;
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setLogin({ ...login, [name]: value });
+  };
+  const handleLoginClick = () => {
+    if (username && password) {
+      LoginUser({ username, password });
+    }
+  };
+  const handleGuestLogin = () => {
+    const credentials = { username: "ajitTesting@gmail.com", password: "200" };
+    setLogin({ ...credentials });
+    LoginUser(credentials);
+  };
+
   /** navigating to sign up form */
   const skipLoginFun = () => {
     setSignupLeft("40px");
     setLoginLeft("-600px");
   };
+  
   /** navigating to Login  form */
   const skipSignupFun = () => {
     setLoginLeft("40px");
@@ -52,14 +80,20 @@ const Login = () => {
           {theme ? <BsFillSunFill /> : <BiSolidMoon />}
         </span>
         {/** from here to.... */}
-        <form className={`login-form-container`} style={{ left: loginLeft }}>
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className={`login-form-container`}
+          style={{ left: loginLeft }}
+        >
           <h3>Log In</h3>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="username">Username</label>
           <input
-            type="email"
-            id="email"
+            type="text"
+            id="username"
             name="username"
-            placeholder="Email"
+            placeholder="Username"
+            value={username}
+            onChange={handleInputChange}
             required
           />
           <label htmlFor="password">Password</label>
@@ -69,6 +103,8 @@ const Login = () => {
               id="password"
               name="password"
               placeholder="*********"
+              value={password}
+              onChange={handleInputChange}
               required
             />
             {showPassword ? (
@@ -87,65 +123,23 @@ const Login = () => {
               />
             )}
           </div>
-          <button>Login</button>
-          <button>Login as Guest</button>
+          <button onClick={handleLoginClick}>Login</button>
+          <button onClick={handleGuestLogin}>Login as Guest</button>
           <hr className="mt-2" />
           <p className="flex-row-center" onClick={skipLoginFun}>
             Navigate to Sign Up <FaRegHandPointRight className="ml-half" />{" "}
           </p>
         </form>
         {/**Signup Form */}
-        <form className={`signup-form-container`} style={{ left: signupLeft }}>
-          <h3>Sign Up</h3>
-          <div className="flex">
-            <input type="text" placeholder="First Name" />
-            &nbsp;&nbsp;
-            <input type="text" placeholder="Last Name" />
-          </div>
-          <input
-            type="email"
-            id="signup_email"
-            name="username"
-            placeholder="Email"
-            required
-          />
-          <div className="password-input-box">
-            <input
-              type={showPassword ? "text" : "password"}
-              id="signup_password"
-              name="password"
-              placeholder="Enter Password"
-              required
-            />
-            <input
-              type={showPassword ? "text" : "password"}
-              id="confirm_password"
-              name="password"
-              placeholder="Confirm Password"
-              required
-            />
-            {showPassword ? (
-              <BsFillEyeFill
-                className={`fill-eye-icon ${
-                  theme && "fill-eye-icon-in-darkBg"
-                }`}
-                onClick={showPasswordFun}
-              />
-            ) : (
-              <BsFillEyeSlashFill
-                className={`fill-eye-icon ${
-                  theme && "fill-eye-icon-in-darkBg"
-                }`}
-                onClick={showPasswordFun}
-              />
-            )}
-          </div>
-          <button>Submit</button>
-          <hr className="mt-2" />
-          <p className="flex-row-center" onClick={skipSignupFun}>
-          <FaRegHandPointLeft className="margin-half" />{" "}Navigate to Login In 
+        <div className="signup-component" style={{ left: signupLeft }}>
+          <Signup />
+          <p
+            className="flex-row-center margin-1 cursor fs-large"
+            onClick={skipSignupFun}
+          >
+            <FaRegHandPointLeft className="margin-half" /> Navigate to Login In
           </p>
-        </form>
+        </div>
       </section>
     </div>
   );

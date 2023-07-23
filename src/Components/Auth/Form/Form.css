@@ -41,16 +41,25 @@
     z-index: 10;
 }
 
-.signup-form-container,
-.login-form-container {
-    /* position: relative; */
+.signup-component {
     position: absolute;
-    /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
+    transition: 0.5s;
+}
+
+.signup-form-container {
+
     width: 450px;
     display: flex;
-    /* left:300px; */
+    flex-direction: column;
+
+}
+
+.login-form-container {
+
+    position: absolute;
+
+    width: 450px;
+    display: flex;
     flex-direction: column;
     transition: 0.5s;
 }
@@ -60,6 +69,10 @@
     font-size: 2rem;
     text-align: center;
     margin: 1rem 0;
+}
+
+.password-msg {
+    color: var(--red);
 }
 
 .signup-form-container input,
