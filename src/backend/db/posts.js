@@ -27,12 +27,12 @@ export const posts = [
         bookmarks: [],
         followers: [],
         following: [],
-        link: "https://yashpurkar-portfolio.netlify.app/",
+        link: " ",
         bio: "Tech geek | Gaming enthusiast | Future coder"
       },],
       dislikedBy: [],
     },
-    username: "yashpurkar@gmail.com",
+    username: "ajitTesting@gmail.com",
     comments: [
       {
         _id: uuid(),
@@ -67,7 +67,7 @@ export const posts = [
         bookmarks: [],
         followers: [],
         following: [],
-        link: "https://yashpurkar-portfolio.netlify.app/",
+        link: " ",
         bio: "Astronomy lover | Star seeker | Science nerd"
       },
       {
@@ -83,7 +83,7 @@ export const posts = [
         bookmarks: [],
         followers: [],
         following: [],
-        link: "https://yashpurkar-portfolio.netlify.app/",
+        link: " ",
         bio: "Writer | Poet | Lover of words"
       },],
       dislikedBy: [],
@@ -96,7 +96,7 @@ export const posts = [
         text: "Nice👌🏻",
       }
     ],
-    createdAt: new Date(2020, 5, 25, 18, 4),
+    createdAt: new Date(2021, 5, 23, 18, 4),
     updatedAt: formatDate(),
   },
   {
@@ -118,13 +118,13 @@ export const posts = [
           bookmarks: [],
           followers: [],
           following: [],
-          link: "https://yashpurkar-portfolio.netlify.app/",
+          link: " ",
           bio: "Astronomy lover | Star seeker | Science nerd"
         }
       ],
       dislikedBy: []
     },
-    username: "yashpurkar@gmail.com",
+    username: "ajitTesting@gmail.com",
     postImg: "https://images.pexels.com/photos/618833/pexels-photo-618833.jpeg?auto=compress&cs=tinysrgb&w=600",
     comments: [
       {
@@ -159,7 +159,7 @@ export const posts = [
         bookmarks: [],
         followers: [],
         following: [],
-        link: "https://yashpurkar-portfolio.netlify.app/",
+        link: " ",
         bio: "Adventure seeker | Fire dancer | Free spirit"
       }],
       dislikedBy: []
@@ -233,7 +233,7 @@ export const posts = [
         bookmarks: [],
         followers: [],
         following: [],
-        link: "https://yashpurkar-portfolio.netlify.app/",
+        link: " ",
         bio: "Dreamer | Moonchild | Artist"
       },],
       dislikedBy: []
@@ -272,7 +272,7 @@ export const posts = [
         bookmarks: [],
         followers: [],
         following: [],
-        link: "https://yashpurkar-portfolio.netlify.app/",
+        link: " ",
         bio: "Writer | Poet | Lover of words"
       }, {
         _id: uuid(),
@@ -315,7 +315,7 @@ export const posts = [
         bookmarks: [],
         followers: [],
         following: [],
-        link: "https://yashpurkar-portfolio.netlify.app/",
+        link: " ",
         bio: "Writer | Poet | Lover of words"
       },],
       dislikedBy: []
@@ -410,7 +410,7 @@ export const posts = [
           bookmarks: [],
           followers: [],
           following: [],
-          link: "https://yashpurkar-portfolio.netlify.app/",
+          link: " ",
           bio: "Nature enthusiast | Coffee addict | Wanderer"
         },
         {
@@ -426,13 +426,13 @@ export const posts = [
           bookmarks: [],
           followers: [],
           following: [],
-          link: "https://yashpurkar-portfolio.netlify.app/",
+          link: " ",
           bio: "Dreamer | Moonchild | Artist"
         },
       ],
       dislikedBy: []
     },
-    username: "yashpurkar@gmail.com",
+    username: "ajitTesting@gmail.com",
     comments: [
       {
         _id: uuid(),
@@ -461,7 +461,7 @@ export const posts = [
         bookmarks: [],
         followers: [],
         following: [],
-        link: "https://yashpurkar-portfolio.netlify.app/",
+        link: " ",
         bio: "Adventure seeker | Fire dancer | Free spirit"
       }],
       dislikedBy: []
@@ -471,7 +471,7 @@ export const posts = [
     comments: [
       {
         _id: uuid(),
-        username: "yashpurkar@gmail.com",
+        username: "ajitTesting@gmail.com",
         text: "Amazing post!"
       },
       {
@@ -501,7 +501,7 @@ export const posts = [
         bookmarks: [],
         followers: [],
         following: [],
-        link: "https://yashpurkar-portfolio.netlify.app/",
+        link: " ",
         bio: "Adventure seeker | Fire dancer | Free spirit"
       }],
       dislikedBy: []
@@ -565,7 +565,7 @@ export const posts = [
       },
       {
         _id: uuid(),
-        username: "yashpurkar@gmail.com",
+        username: "ajitTesting@gmail.com",
         text: "I'm impressed!"
       }
     ],
@@ -590,7 +590,7 @@ export const posts = [
         bookmarks: [],
         followers: [],
         following: [],
-        link: "https://yashpurkar-portfolio.netlify.app/",
+        link: " ",
         bio: "Seeker of ancient knowledge | Storyteller | Occult enthusiast"
       }],
       dislikedBy: []
@@ -630,7 +630,7 @@ export const posts = [
         bookmarks: [],
         followers: [],
         following: [],
-        link: "https://yashpurkar-portfolio.netlify.app/",
+        link: " ",
         bio: "Astronomy lover | Star seeker | Science nerd"
       },
       {
@@ -646,7 +646,7 @@ export const posts = [
         bookmarks: [],
         followers: [],
         following: [],
-        link: "https://yashpurkar-portfolio.netlify.app/",
+        link: " ",
         bio: "Writer | Poet | Lover of words"
       },],
       dislikedBy: []
@@ -686,7 +686,7 @@ export const posts = [
         bookmarks: [],
         followers: [],
         following: [],
-        link: "https://yashpurkar-portfolio.netlify.app/",
+        link: " ",
         bio: "Seeker of ancient knowledge | Storyteller | Occult enthusiast"
       }],
       dislikedBy: []
@@ -705,7 +705,7 @@ export const posts = [
         text: "Agree💯"
       }
     ],
-    createdAt: new Date(2020, 5, 25, 16, 30),
+    createdAt: new Date(2022, 3, 24, 15, 31),
     updatedAt: formatDate()
   }
 

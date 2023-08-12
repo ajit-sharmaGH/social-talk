@@ -4,26 +4,33 @@
 :root {
   font-family: "Montserrat", sans-serif;
   /* Primary Colors */
-  --color-primary: #1da1f2; /* Twitter Blue */
+  --color-primary: #1da1f2;
+  /* Twitter Blue */
   --color-primary-dark: #1a91da;
   --color-primary-light: #5cb8ff;
 
   /* Secondary Colors */
-  --color-secondary: #ffad1f; /* Twitter Orange */
+  --color-secondary: #ffad1f;
+  /* Twitter Orange */
   --color-secondary-dark: #d88c16;
   --color-secondary-light: #ffbb49;
 
   /* Background Colors */
-  --color-background: #f5f8fa; /* Twitter Light Gray */
-  --color-background-dark: #1a202c; /* Dark mode background */
+  --color-background: #f5f8fa;
+  /* Twitter Light Gray */
+  --color-background-dark: #1a202c;
+  /* Dark mode background */
   --navcolor-background-dark: #142535;
   --color-background-light: #f9fafb;
-
+  --post-bg-color-light: hsla(0, 33%, 97%, 0.871);
+  --post-bg-color-dark: #00000189;
   /* Text Colors */
-  --color-text-primary: #14171a; /* Twitter Black */
-  --color-text-secondary: #657786; /* Twitter Gray */
-  --color-text-light: hwb(0 100% 0% / 0.899); /* Twitter White */
-
+  --color-text-primary: #14171a;
+  /* Twitter Black */
+  --color-text-secondary: #657786;
+  /* Twitter Gray */
+  --color-text-light: hwb(0 100% 0% / 0.899);
+  /* Twitter White */
   --primary: #ff6600;
   --secondary: #ff771f;
   --tertiary: #ff8c3c;
@@ -82,12 +89,14 @@
   --alert-warning-text: #ff9204;
   --iframe-bg-color: #161616;
 }
+
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 1px;
 }
+
 ::-webkit-scrollbar-thumb {
   background-color: var(--color-text-secondary);
-  border-radius: 2rem;
+  border-radius: 50%;
 }
 
 * {
@@ -166,9 +175,11 @@ ul {
 .txt-left {
   text-align: left;
 }
+
 .txt-right {
   text-align: right;
 }
+
 /** form */
 
 button,
@@ -269,9 +280,11 @@ li {
 .fw-800 {
   font-weight: 800;
 }
-.fs-large{
-  font-size:22px;
+
+.fs-large {
+  font-size: 22px;
 }
+
 .fs-small {
   font-size: 13px;
 }
@@ -349,9 +362,11 @@ li {
 .ml-2 {
   margin-left: 2rem;
 }
+
 .ml-half {
   margin-left: 0.5rem;
 }
+
 .mr-2 {
   margin-right: 2rem;
 }

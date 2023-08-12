@@ -28,11 +28,17 @@ const mainReducer = (state, action) => {
         ...state,
         users: payload,
       };
+      case "POST_OPERATIONS":
+         return {
+        ...state, posts: payload
+      }
     case "ADD_USERS":
       return {
         ...state,
         users: [...state.users, payload],
       };
+     
+  
     default:
       return state;
   }

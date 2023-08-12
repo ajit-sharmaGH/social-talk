@@ -4,9 +4,11 @@ import {  useNavigate } from "react-router";
 import { success, warning } from "../Pages/Services/ToastService";
 const AuthContext = createContext();
 const AuthContextProvider = ({ children }) => {
-  const getToken = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(getToken ? true : false);
+  const [isLoggedIn, setIsLoggedIn] = useState(token ? true: false);
+ 
+  
 
   const LoginUser = async (credentials) => {
     try {

@@ -7,6 +7,7 @@ import { makeServer } from "./server";
 import { ThemeContextProvider } from "./Context/ThemeContext";
 import { AuthContextProvider } from "./Context/AuthContext";
 import { MainContextProvider } from "./Context/MainContext";
+import { PostContextProvider } from "./Context/PostContext";
 
 // Call make Server
 makeServer();
@@ -17,7 +18,9 @@ ReactDOM.render(
       <AuthContextProvider>
         <MainContextProvider>
           <ThemeContextProvider>
+            <PostContextProvider>
             <App />
+            </PostContextProvider>
           </ThemeContextProvider>
         </MainContextProvider>
       </AuthContextProvider>

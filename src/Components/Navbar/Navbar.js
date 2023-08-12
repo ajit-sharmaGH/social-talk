@@ -16,7 +16,7 @@ const Navbar = () => {
           theme && "navLink-in-darkBg"
         }`}
       >
-        <img src={navLogo} className="navbar-logo mr-1" alt="photo_" />
+        <img src={navLogo} className="navbar-logo mr-1" alt="logo" />
         <h3>Social Talk</h3>
       </NavLink>
       <section className="search-container">

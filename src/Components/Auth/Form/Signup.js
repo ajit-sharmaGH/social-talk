@@ -29,28 +29,47 @@ const Signup = () => {
 
   const handleSignUpInput = (e) => {
     const { name, value } = e.target;
-    console.log(`Input name: ${name}, Input value: ${value}`);
     setSignUpDetails({ ...signUpDetails, [name]: value });
   };
 
   const { firstName, lastName, username, password } = signUpDetails;
 
-  const createAccount = () => {
+  // const createAccount = () => {
+  //   if (
+  //     firstName &&
+  //     lastName &&
+  //     username &&
+  //     password === document.getElementById("confirm_password").value
+  //   ) {
+  //     SignupUser(
+  //       { ...signUpDetails, userHandler: `${firstName}` },
+  //       dataDispatch
+  //     );
+  //     setSignUpDetails({...signUpDetails });
+  //   }else{
+  //       setMsg("check password or input fields");
+  //   }
+  // };
+  const createAccount = async () => {
     if (
       firstName &&
       lastName &&
       username &&
       password === document.getElementById("confirm_password").value
     ) {
-      SignupUser(
-        { ...signUpDetails, userHandler: `${firstName}` },
-        dataDispatch
-      );
-    }else{
-        setMsg("check password or input fields");
+      const credentials = {
+        firstName,
+        lastName,
+        username, // Use the username from the signUpDetails state
+        password,
+      };
+       SignupUser(credentials, dataDispatch);
+       setSignUpDetails({ ...signUpDetails })
+
+    } else {
+      setMsg("Check password or input fields");
     }
   };
-
   const confirmPasswordHandler = (e) => {
     if (password !== e.target.value) {
       setMsg("password not matching");
@@ -125,7 +144,7 @@ const Signup = () => {
             />
           )}
         </div>
-        <button onClick={createAccount}>Create Account</button>
+        <button type="submit" onClick={createAccount}>Create Account</button>
         <div className="password-msg"> {msg} </div>
         <hr className="mt-2" />
         

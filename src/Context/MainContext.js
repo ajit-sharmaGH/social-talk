@@ -1,3 +1,4 @@
+
 import axios from "axios";
 import { createContext, useContext, useState, useReducer, useEffect } from "react";
 import { initialState, mainReducer } from "../Reducer/MainReducer";
@@ -13,14 +14,12 @@ const MainContextProvider = ({ children }) => {
       const {
         status,
         data: { posts },
-      } = await axios.post("/api/posts");
+      } = await axios.get("/api/posts");
       if (status === 200 || status === 201) {
         dataDispatch({ type: "INITIALIZE_POSTS", payload: posts });
       }
     } catch (error) {
       console.log(error);
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -32,16 +31,21 @@ const MainContextProvider = ({ children }) => {
       }
     } catch (error) {
       console.log(error)
-    } finally {
-      setIsLoading(false)
     }
+    
   }
 
   useEffect(() => {
-    getAllPosts()
-    getAllUsers()
+    // Fetch user data from local storage on page refresh
+    Promise.all([getAllPosts(), getAllUsers()])
+      .then(() => {
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setIsLoading(false);
+      });
   }, []);
-
 
   return (
     <MainContext.Provider
@@ -52,11 +56,13 @@ const MainContextProvider = ({ children }) => {
         setSearchedUser,
         searchedUser,
         isLoading,
+        setIsLoading,
       }}
     >
       {children}
     </MainContext.Provider>
   );
 };
+
 const useMainContext = () => useContext(MainContext);
 export { MainContextProvider, useMainContext };
