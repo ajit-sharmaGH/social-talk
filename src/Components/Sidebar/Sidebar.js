@@ -1,7 +1,7 @@
 import "./Sidebar.css";
-import { AiFillHome, AiFillProfile } from "react-icons/ai";
+import { AiFillHome, } from "react-icons/ai";
 import { BsBookmarksFill } from "react-icons/bs";
-import { FaUserCircle, FaWpexplorer } from "react-icons/fa";
+import {  FaWpexplorer } from "react-icons/fa";
 import { BiLogOut } from "react-icons/bi";
 
 import { NavLink } from "react-router-dom";
