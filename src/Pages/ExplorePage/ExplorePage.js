@@ -17,7 +17,7 @@ const ExplorePage = () => {
         className={`main-component ${
           theme ? "main-component-border-color-in-bgDark" : ""
         }`}
-      >
+       >
         <Explore />
       </main>
       <section className="widgets-component">

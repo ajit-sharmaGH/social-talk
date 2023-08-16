@@ -1,5 +1,111 @@
-.main-container{
-display:flex;
-flex-direction: column;
-align-items: center;
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textarea-container {
+    margin: 1rem;
+    border: 1px solid var(--dark);
+    border-radius: 0.5rem;
+    padding: 1rem 1rem 3rem 5rem;
+    position: relative;
+
+
+}
+
+.file-icon {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1rem;
+}
+
+.home-profile-image {
+    position: absolute;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    top: 1rem;
+    left: 1rem;
+}
+
+.textarea-space {
+    background-color: transparent;
+    color: inherit;
+    width: 100%;
+    resize: vertical;
+    border: none;
+    outline: none;
+    font-size: 1.3rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    min-height: 8rem;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+
+}
+
+.posting-bg-in-light-theme {
+    background-color: var(--post-bg-color-light);
+}
+
+.posting-bg-in-dark-theme {
+    background-color: var(--post-bg-color-dark);
+    color: var(--post-bg-color-light);
+    border:1px solid var(--white);
+}
+
+.input-file-type {
+    border: none;
+    height: 0;
+    width: 0;
+}
+
+.uploading-image-container {
+    position: absolute;
+    bottom: 1rem;
+    left: 3rem;
+}
+
+.uploading-image {
+    height: 4rem;
+    width: 5.5rem;
+    border-radius: 8px;
+}
+
+.remove-uploading-image {
+    position: relative;
+    right: 10px;
+    bottom: 2.5rem;
+    color: var(--red);
+}
+.add-post-button {
+    position: absolute;
+    right: 1rem;
+    bottom: 1.7rem;
+    border: 1px solid var(--blueviolet);
+    border-radius: 5px;
+    width: 4rem;
+    padding: 3px;
+    font-family: inherit;
+    font-size: 18px;
+}
+
+.home-tabs-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0.5rem;
+}
+
+.home-tabs-container button {
+    padding: 2px 5px;
+    font-family: inherit;
+    font-size: 1.1rem;
+    border: none;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+}
+.active-tabs-styling{
+    font-weight: 550;
 }

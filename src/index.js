@@ -7,6 +7,7 @@ import { makeServer } from "./server";
 import { ThemeContextProvider } from "./Context/ThemeContext";
 import { AuthContextProvider } from "./Context/AuthContext";
 import { MainContextProvider } from "./Context/MainContext";
+import { BookMarkContextProvider } from "./Context/BookmarkContext";
 
 // Call make Server
 makeServer();
@@ -14,6 +15,7 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+      <BookMarkContextProvider>
       <AuthContextProvider>
         <MainContextProvider>
           <ThemeContextProvider>
@@ -21,6 +23,7 @@ ReactDOM.render(
           </ThemeContextProvider>
         </MainContextProvider>
       </AuthContextProvider>
+      </BookMarkContextProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")

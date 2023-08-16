@@ -1,0 +1,15 @@
+.comment-profile-image{
+    
+    height:2rem;
+    width:2rem;
+    border-radius:50%;
+}
+.comment-section{
+    margin-top: 1rem;
+    display:flex;
+    align-items: center;
+  
+}
+.delete-icon{
+    color:var(--red);
+}

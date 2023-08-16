@@ -23,8 +23,10 @@ const Login = () => {
     username: "",
     password: "",
   });
+  
 
-  const { LoginUser } = useAuth();
+
+  const { LoginUser, } = useAuth();
   const { username, password } = login;
 
   const handleInputChange = (e) => {
@@ -36,12 +38,13 @@ const Login = () => {
       LoginUser({ username, password });
     }
   };
+  
   const handleGuestLogin = () => {
     const credentials = { username: "ajitTesting@gmail.com", password: "200" };
-    setLogin({ ...credentials });
+    setLogin({...credentials});
     LoginUser(credentials);
   };
-
+  
   /** navigating to sign up form */
   const skipLoginFun = () => {
     setSignupLeft("40px");
@@ -124,7 +127,7 @@ const Login = () => {
             )}
           </div>
           <button onClick={handleLoginClick}>Login</button>
-          <button onClick={handleGuestLogin}>Login as Guest</button>
+          <button type="submit" onClick={handleGuestLogin}>Login as Guest</button>
           <hr className="mt-2" />
           <p className="flex-row-center" onClick={skipLoginFun}>
             Navigate to Sign Up <FaRegHandPointRight className="ml-half" />{" "}

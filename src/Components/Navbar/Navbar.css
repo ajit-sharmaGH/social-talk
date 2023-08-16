@@ -32,13 +32,14 @@
   color: var(--transparent-black);
 }
 .search-container input {
-  min-width: 37rem;
+  /* min-width: 37rem; */
+  height:2.5rem;
   padding: 3px 30px 3px 10px;
   font-size: 20px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   outline-color: var(--blueviolet);
   border: 1px solid var(--gray);
-  border-radius: 3px;
+  border-radius: 2rem;
 }
 .navbar-container p {
   font-size: 1.8rem;
