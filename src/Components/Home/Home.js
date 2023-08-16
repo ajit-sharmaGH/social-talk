@@ -11,20 +11,30 @@ import { warning } from "../../Pages/Services/ToastService";
 import { v4 as uuid } from "uuid";
 const Home = () => {
   const {
-    dataState: { posts, users },
+    dataState: { posts, users, postIdToBeEdit },
     dataDispatch,
   } = useMainContext();
   const { theme } = useTheme();
   const [postsType, setPostsType] = useState("latest");
   const [postData, setPostData] = useState("");
-  useEffect(() => {
-    setPostData({
+//   useEffect(() => {
+//     setPostData({
+//       _id: uuid(),
+//       content: "",
+//       comments: [],
+//       postImg: "",
+//     });
+//   }, []);
+
+useEffect(() => {
+    const editPostData = posts?.find(post => post._id === postIdToBeEdit);
+    setPostData(postIdToBeEdit ? editPostData : {
       _id: uuid(),
       content: "",
       comments: [],
-      postImg: "",
-    });
-  }, []);
+      postImg: ""
+    })
+  }, [])
   const socialUser = JSON.parse(localStorage.getItem("socialUsers"));
   const loggedInUser = users?.find((el) => el.username === socialUser.username);
 
@@ -44,8 +54,7 @@ const Home = () => {
     loggedInUser?.following?.some((el) => el.username === post.username)
   );
 
-  const likedPostsByUsers = posts?.filter(
-    (post) =>
+  const likedPostsByUsers = posts?.filter((post) =>
       loggedInUser?.following?.some((el) => el?.username === post?.username) ||
       loggedInUser?.username === post?.username
   );
@@ -75,7 +84,7 @@ const Home = () => {
       createPostHandler(postData, token, dataDispatch);
       setPostData((prev) => ({ ...prev, content: "", postImg: "" }));
     } else {
-      warning("Add Content!");
+      warning("Add Content");
     }
   };
 

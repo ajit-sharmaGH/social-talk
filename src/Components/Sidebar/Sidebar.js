@@ -1,8 +1,7 @@
 import "./Sidebar.css";
-import { AiFillHome } from "react-icons/ai";
+import { AiFillHome, AiFillProfile } from "react-icons/ai";
 import { BsBookmarksFill } from "react-icons/bs";
-import { FaWpexplorer } from "react-icons/fa";
-import { MdAccountCircle } from "react-icons/md";
+import { FaUserCircle, FaWpexplorer } from "react-icons/fa";
 import { BiLogOut } from "react-icons/bi";
 
 import { NavLink } from "react-router-dom";
@@ -10,6 +9,7 @@ import { useTheme } from "../../Context/ThemeContext";
 import { useAuth } from "../../Context/AuthContext";
 import { warning } from "../../Pages/Services/ToastService";
 import { useBookMark } from "../../Context/BookmarkContext";
+import { MdOutlineAccountCircle } from "react-icons/md";
 const Sidebar = () => {
   const { theme } = useTheme();
   const { setIsLoggedIn } = useAuth();
@@ -73,7 +73,6 @@ const Sidebar = () => {
             </>
           )}
         </NavLink>
-
         <NavLink
           to="/Profile"
           style={getActiveColor}
@@ -81,7 +80,7 @@ const Sidebar = () => {
             theme && "navLink-in-darkBg"
           }`}
         >
-          <MdAccountCircle /> Profile
+          <MdOutlineAccountCircle /> Profile
         </NavLink>
         <NavLink
           onClick={handleLogout}
@@ -93,17 +92,13 @@ const Sidebar = () => {
         </NavLink>
       </nav>
       <NavLink
-        to="/Profile"
-        style={getActiveColor}
-        className={`navLink-decoration flex navLink-sidebar ${
-          theme && "navLink-in-darkBg"
-        }`}
+        // to="/Profile"
+        // style={getActiveColor}
+        // className={`navLink-decoration flex navLink-sidebar ${
+        //   theme && "navLink-in-darkBg"
+        // }`}
       >
-        <div className="profile-img"></div>
-        <aside>
-          <h4>Ajit Sharma</h4>
-          <small>@itsAjitSharma</small>
-        </aside>
+        {/* <div className="profile-img"></div> */}
       </NavLink>
     </div>
   );

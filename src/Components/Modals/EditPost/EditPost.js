@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import {v4 as uuid} from "uuid"
 import { BiImageAdd } from "react-icons/bi";
 import { IoMdRemoveCircle } from "react-icons/io";
 import { editPostHandler } from "../../../Context/PostContext";
@@ -15,9 +16,14 @@ export const AddPost = () => {
   const { theme } = useTheme();
 
   useEffect(() => {
-    const editPostData = posts?.find((post) => post._id === postIdToBeEdit);
-    setPostData(editPostData);
-  }, [postIdToBeEdit, posts]);
+    const editPostData = posts?.find(post => post._id === postIdToBeEdit);
+    setPostData(postIdToBeEdit ? editPostData : {
+      _id: uuid(),
+      content: "",
+      comments: [],
+      postImg: ""
+    })
+  }, [])
 
   const token = localStorage.getItem("token");
 

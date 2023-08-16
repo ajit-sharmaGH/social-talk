@@ -1,0 +1,31 @@
+/* .profile-container{
+    background-color: var(--white);
+    margin:1rem;
+    width:100%;
+
+
+} */
+.profile-section{
+    display: flex;
+    flex-direction: row;
+}
+.profile-other-information{
+    display: flex;
+    margin-left: 2.7rem;
+}
+.profile-other-information p{
+    margin:0 1rem;
+}
+.profile-edit-button{
+    display: block;
+    padding:2px 5px;
+    background-color: var(--blueviolet);
+    color: var(--white);
+    font-family: inherit;
+    border-radius: 5px;
+    font-size: 17px;
+    border:none;
+    width:fit-content;
+    height: 2rem;
+    letter-spacing: 1px;
+}

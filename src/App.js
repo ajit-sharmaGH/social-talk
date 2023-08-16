@@ -13,18 +13,21 @@ import { BookmarkPage } from "./Pages/BookmarkPage/BookmarkPage";
 import { PostDetail } from "./Pages/PostDetailPage/PostDetail";
 import { AddPost } from "./Components/Modals/EditPost/EditPost";
 import { AddComment } from "./Components/Modals/AddCommnet/AddCommnet";
+import { ProfilePage } from "./Pages/ProfilePage/ProfilePage";
+import { ProfileEditModal } from "./Components/Modals/ProfileEdit/ProfileEdit";
 
 function App() {
   const {
     isLoading,
     dataState: {
-      modals: { showCommentModal, showPostModal },
+      modals: { showProfileEditModal, showCommentModal, showPostModal },
     },
   } = useMainContext();
   return (
     <div>
       <div>{showPostModal && <AddPost />} </div>
       <div>{showCommentModal && <AddComment />}</div>
+      <div>{showProfileEditModal && <ProfileEditModal />}</div>
       {isLoading && <Loader />}
       <Routes>
         <Route path="/Login" element={<Login />} />
@@ -46,6 +49,15 @@ function App() {
             </RequiresAuth>
           }
         />
+        <Route
+          path="/Profile"
+          element={
+            <RequiresAuth>
+              {" "}
+              <ProfilePage />
+            </RequiresAuth>
+          }
+        />
         <Route path="/post/:postId" element={<PostDetail />} />
         <Route
           path="/Bookmarks"
@@ -59,7 +71,7 @@ function App() {
       </Routes>
 
       <ToastContainer
-        position="top-center"
+        position="bottom-left"
         autoClose={1500}
         hideProgressBar={false}
         newestOnTop={false}
