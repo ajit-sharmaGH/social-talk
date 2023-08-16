@@ -98,6 +98,36 @@ export const mainReducer = (state, action) => {
           commentPostId: null,
         },
       };
+    case "FOLLOWING_OPERATIONS":
+      return {
+        ...state,
+        users: state?.users?.map((el) =>
+          el.username === payload.user?.username
+            ? { ...el, following: payload?.user?.following }
+            : el
+        ),
+      };
+
+    case "ADD_FOLLOWER":
+      return {
+        ...state,
+        users: state.users.map((user) =>
+          user.username === payload.followUser.username
+            ? { ...user, followers: payload.followUser.followers }
+            : user
+        ),
+      };
+    case "SHOW_PROFILE_EDIT_MODAL":
+      return {
+        ...state,
+        modals: { ...state.modals, showProfileEditModal: true },
+      };
+
+    case "HIDE_PROFILE_EDIT_MODAL":
+      return {
+        ...state,
+        modals: { ...state.modals, showProfileEditModal: false },
+      };
 
     default:
       return state;

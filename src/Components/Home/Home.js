@@ -44,8 +44,7 @@ const Home = () => {
     loggedInUser?.following?.some((el) => el.username === post.username)
   );
 
-  const likedPostsByUsers = posts?.filter(
-    (post) =>
+  const likedPostsByUsers = posts?.filter((post) =>
       loggedInUser?.following?.some((el) => el?.username === post?.username) ||
       loggedInUser?.username === post?.username
   );
@@ -75,7 +74,7 @@ const Home = () => {
       createPostHandler(postData, token, dataDispatch);
       setPostData((prev) => ({ ...prev, content: "", postImg: "" }));
     } else {
-      warning("Add Content!");
+      warning("Add Content");
     }
   };
 
