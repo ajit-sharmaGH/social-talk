@@ -11,30 +11,20 @@ import { warning } from "../../Pages/Services/ToastService";
 import { v4 as uuid } from "uuid";
 const Home = () => {
   const {
-    dataState: { posts, users, postIdToBeEdit },
+    dataState: { posts, users },
     dataDispatch,
   } = useMainContext();
   const { theme } = useTheme();
   const [postsType, setPostsType] = useState("latest");
   const [postData, setPostData] = useState("");
-//   useEffect(() => {
-//     setPostData({
-//       _id: uuid(),
-//       content: "",
-//       comments: [],
-//       postImg: "",
-//     });
-//   }, []);
-
-useEffect(() => {
-    const editPostData = posts?.find(post => post._id === postIdToBeEdit);
-    setPostData(postIdToBeEdit ? editPostData : {
+  useEffect(() => {
+    setPostData({
       _id: uuid(),
       content: "",
       comments: [],
-      postImg: ""
-    })
-  }, [])
+      postImg: "",
+    });
+  }, []);
   const socialUser = JSON.parse(localStorage.getItem("socialUsers"));
   const loggedInUser = users?.find((el) => el.username === socialUser.username);
 
