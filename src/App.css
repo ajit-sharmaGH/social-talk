@@ -1,32 +1,38 @@
 .combined-pages-body {
-    display: grid;
-    grid-template-areas: "sidebar main main  widgets";
-    grid-template-rows: calc(100vh - 4.5rem);
-    grid-template-columns: 25% 25% 25% 25%;
-  }
-  
-  .sidebar-component {
-    grid-area: sidebar;
-  }
-  .main-component {
-    grid-area: main;
-    overflow: auto;
-    border-width: 0 1px;
-    border-style: solid;
-    border-color: var(--transparent-black);
-  }
-  .main-component-border-color-in-bgDark {
-    border-right: 1px solid var(--color-text-secondary);
-    border-left: 1px solid var(--color-text-secondary);
-  }
-  .widgets-component {
-    grid-area: widgets;
-  }
-  .navLink-decoration{
-    text-decoration: none;
-    color:var(--transparent-black);
-   
-  }
-  .navLink-in-darkBg{
-    color:var(--color-text-light);
-  }
+  display: grid;
+  grid-template-areas: "sidebar main main  widgets";
+  grid-template-rows: calc(100vh - 4.5rem);
+  grid-template-columns: 25% 25% 25% 25%;
+}
+
+.sidebar-component {
+  grid-area: sidebar;
+}
+
+.main-component {
+  grid-area: main;
+  overflow: auto;
+  border-width: 0 1px;
+  border-style: solid;
+  border-color: var(--transparent-black);
+}
+
+.main-component-border-color-in-bgDark {
+  border-right: 1px solid var(--color-text-secondary);
+  border-left: 1px solid var(--color-text-secondary);
+}
+
+.widgets-component {
+  grid-area: widgets;
+}
+
+.navLink-decoration {
+  text-decoration: none;
+  color: var(--transparent-black);
+
+}
+
+.navLink-in-darkBg {
+  color: var(--color-text-light);
+}
+

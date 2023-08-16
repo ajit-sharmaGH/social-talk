@@ -20,7 +20,7 @@ const AuthContextProvider = ({ children }) => {
       });
       if (status === 200 || status === 201) {
         localStorage.setItem("token", encodedToken);
-        localStorage.setItem("users", JSON.stringify(foundUser));
+        localStorage.setItem("socialUsers", JSON.stringify(foundUser));
         setIsLoggedIn(true);
         success(`Login Successfully`);
         navigate("/");
@@ -30,6 +30,7 @@ const AuthContextProvider = ({ children }) => {
       warning("Account Doesn't Exist!");
     }
   };
+ 
 
   const SignupUser = async (credentials,dataDispatch) => {
     try {
@@ -42,7 +43,7 @@ const AuthContextProvider = ({ children }) => {
 
       if (status === 200 || status === 201) {
         localStorage.setItem("token", encodedToken);
-        localStorage.setItem("users", JSON.stringify(createdUser));
+        localStorage.setItem("socialUsers", JSON.stringify(createdUser));
         dataDispatch({ type: "ADD_USERS", payload: createdUser })
         setIsLoggedIn(true);
         navigate("/");

@@ -1,6 +1,11 @@
-
 import axios from "axios";
-import { createContext, useContext, useState, useReducer, useEffect } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useReducer,
+  useEffect,
+} from "react";
 import { initialState, mainReducer } from "../Reducer/MainReducer";
 const MainContext = createContext();
 
@@ -20,31 +25,30 @@ const MainContextProvider = ({ children }) => {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const getAllUsers = async () => {
     try {
-      const { status, data: { users } } = await axios.get('/api/users');
+      const {
+        status,
+        data: { users },
+      } = await axios.get("/api/users");
       if (status === 200 || status === 201) {
-        dataDispatch({ type: "INITIALIZE_USERS", payload: users })
+        dataDispatch({ type: "INITIALIZE_USERS", payload: users });
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
+    } finally {
+      setIsLoading(false);
     }
-    
-  }
+  };
 
   useEffect(() => {
-    // Fetch user data from local storage on page refresh
-    Promise.all([getAllPosts(), getAllUsers()])
-      .then(() => {
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        setIsLoading(false);
-      });
+    getAllPosts();
+    getAllUsers();
   }, []);
 
   return (

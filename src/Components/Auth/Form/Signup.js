@@ -57,14 +57,9 @@ const Signup = () => {
       username &&
       password === document.getElementById("confirm_password").value
     ) {
-      const credentials = {
-        firstName,
-        lastName,
-        username, // Use the username from the signUpDetails state
-        password,
-      };
-       SignupUser(credentials, dataDispatch);
-       setSignUpDetails({ ...signUpDetails })
+      
+      SignupUser({ ...signUpDetails, userHandler: `${firstName}` },  dataDispatch)
+      setSignUpDetails({ ...signUpDetails })
 
     } else {
       setMsg("Check password or input fields");
@@ -114,7 +109,7 @@ const Signup = () => {
         />
         <div className="password-input-box">
           <input
-            id="password"
+            id="password_"
             type={showPassword ? "text" : "password"}
             name="password"
             placeholder="Enter Password"

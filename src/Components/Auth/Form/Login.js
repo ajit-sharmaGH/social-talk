@@ -23,8 +23,10 @@ const Login = () => {
     username: "",
     password: "",
   });
+  
 
-  const { LoginUser } = useAuth();
+
+  const { LoginUser, } = useAuth();
   const { username, password } = login;
 
   const handleInputChange = (e) => {
@@ -42,6 +44,7 @@ const Login = () => {
     setLogin({...credentials});
     LoginUser(credentials);
   };
+  
   /** navigating to sign up form */
   const skipLoginFun = () => {
     setSignupLeft("40px");

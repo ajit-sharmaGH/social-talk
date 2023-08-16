@@ -9,9 +9,11 @@ import { NavLink } from "react-router-dom";
 import { useTheme } from "../../Context/ThemeContext";
 import { useAuth } from "../../Context/AuthContext";
 import { warning } from "../../Pages/Services/ToastService";
+import { useBookMark } from "../../Context/BookmarkContext";
 const Sidebar = () => {
   const { theme } = useTheme();
   const { setIsLoggedIn } = useAuth();
+  const { bookmark } = useBookMark();
   const getActiveColor = ({ isActive }) => {
     if (theme) {
       return {
@@ -61,7 +63,15 @@ const Sidebar = () => {
             theme && "navLink-in-darkBg"
           }`}
         >
-          <BsBookmarksFill /> Bookmarks
+          {bookmark.length > 0 ? (
+            <>
+              Bookmarked &nbsp;<small>{`[ ${bookmark.length} ]`}</small>
+            </>
+          ) : (
+            <>
+              <BsBookmarksFill /> Bookmarks{" "}
+            </>
+          )}
         </NavLink>
 
         <NavLink
@@ -75,7 +85,6 @@ const Sidebar = () => {
         </NavLink>
         <NavLink
           onClick={handleLogout}
-         
           className={`navLink-decoration navLink-sidebar ${
             theme && "navLink-in-darkBg"
           }`}

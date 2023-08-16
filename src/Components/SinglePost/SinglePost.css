@@ -33,9 +33,9 @@
 }
 .single-post-icons{
     display:flex;
-    font-size:1.3rem;
+    font-size:1.4rem;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .edit-delete-icons{
