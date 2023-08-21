@@ -27,6 +27,8 @@
     border-radius: 50%;
     top: 1rem;
     left: 1rem;
+    background-size: cover;
+    box-shadow: 0px 0px 8px var(--gray);
 }
 
 .textarea-space {
@@ -51,7 +53,7 @@
 .posting-bg-in-dark-theme {
     background-color: var(--post-bg-color-dark);
     color: var(--post-bg-color-light);
-    border:1px solid var(--white);
+    border: 1px solid var(--white);
 }
 
 .input-file-type {
@@ -78,6 +80,7 @@
     bottom: 2.5rem;
     color: var(--red);
 }
+
 .add-post-button {
     position: absolute;
     right: 1rem;
@@ -106,6 +109,7 @@
     color: inherit;
     cursor: pointer;
 }
-.active-tabs-styling{
+
+.active-tabs-styling {
     font-weight: 550;
 }

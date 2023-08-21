@@ -56,6 +56,7 @@ export const AddPost = () => {
         }`}
       >
         <textarea
+         id=""
           type="text"
           name="post"
           className={`textarea-space mb-1`}

@@ -3,6 +3,7 @@ import { Navbar } from "../../Components/Navbar/Navbar";
 import { Sidebar } from "../../Components/Sidebar/Sidebar";
 import { Widgets } from "../../Components/Widgets/Widgets";
 import { useTheme } from "../../Context/ThemeContext";
+import {v4 as uuid} from "uuid";
 import "./HomePage.css";
 
 const HomePage = () => {
@@ -19,7 +20,7 @@ const HomePage = () => {
           theme ? "main-component-border-color-in-bgDark" : ""
         }`}
       >
-        <Home />
+        <Home key={uuid}/>
       </main>
       <section className="widgets-component">
         <Widgets />
