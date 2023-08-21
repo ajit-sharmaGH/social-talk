@@ -44,25 +44,28 @@ const Home = () => {
     loggedInUser?.following?.some((el) => el.username === post.username)
   );
 
-  const likedPostsByUsers = posts?.filter((post) =>
+  const likedPostsByUsers = posts?.filter(
+    (post) =>
       loggedInUser?.following?.some((el) => el?.username === post?.username) ||
       loggedInUser?.username === post?.username
   );
+  const postsByUsers = () => {
+    if (postsType === "latest") {
+      return [...loggedInUserPosts, ...homePosts].sort(
+        (a, b) => new Date(b?.createdAt) - new Date(a?.createdAt)
+      );
+    } else if (postsType === "oldest") {
+      return [...loggedInUserPosts, ...homePosts].sort(
+        (a, b) => new Date(a?.createdAt) - new Date(b?.createdAt)
+      );
+    } else {
+      return likedPostsByUsers?.sort(
+        (a, b) => b?.likes?.likeCount - a?.likes?.likeCount
+      );
+    }
+  };
 
-  const postsByLikedCount = likedPostsByUsers?.sort(
-    (a, b) => b?.likes?.likeCount - a?.likes?.likeCount
-  );
-
-  const postsByUsers =
-    postsType === "latest"
-      ? [...loggedInUserPosts, ...homePosts].sort(
-          (a, b) => new Date(b?.createdAt) - new Date(a?.createdAt)
-        )
-      : postsType === "oldest"
-      ? [...loggedInUserPosts, ...homePosts].sort(
-          (a, b) => new Date(a?.createdAt) - new Date(b?.createdAt)
-        )
-      : postsByLikedCount;
+  const renderFilterPosts = postsByUsers();
 
   const handleRemoveFile = () => {
     setPostData((prev) => ({ ...prev, postImg: "" }));
@@ -120,6 +123,7 @@ const Home = () => {
         }`}
       >
         <textarea
+          id=""
           type="text"
           name="post"
           className={`textarea-space mb-1`}
@@ -163,9 +167,9 @@ const Home = () => {
         </button>
       </div>
 
-      {postsByUsers?.length > 0 && (
+      {renderFilterPosts.length > 0 && (
         <div>
-          {postsByUsers?.map((post) => (
+          {renderFilterPosts.map((post) => (
             <SinglePost key={post._id} post={post} />
           ))}
         </div>

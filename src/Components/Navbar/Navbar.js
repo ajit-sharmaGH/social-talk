@@ -20,9 +20,13 @@ const Navbar = () => {
         <h3>Social Talk</h3>
       </NavLink>
       <section className="search-container">
-        <input type="text" placeholder="search users..." />
+        <input
+          type="text"
+          placeholder="search users..."
+          className={`${theme && "search-input-dark"}`}
+        />
         <span>
-          <MdOutlinePersonSearch />
+          <MdOutlinePersonSearch className={`${theme && "search-user-icon"}`} />
         </span>
       </section>
 

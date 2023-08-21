@@ -34,22 +34,7 @@ const Signup = () => {
 
   const { firstName, lastName, username, password } = signUpDetails;
 
-  // const createAccount = () => {
-  //   if (
-  //     firstName &&
-  //     lastName &&
-  //     username &&
-  //     password === document.getElementById("confirm_password").value
-  //   ) {
-  //     SignupUser(
-  //       { ...signUpDetails, userHandler: `${firstName}` },
-  //       dataDispatch
-  //     );
-  //     setSignUpDetails({...signUpDetails });
-  //   }else{
-  //       setMsg("check password or input fields");
-  //   }
-  // };
+
   const createAccount = async () => {
     if (
       firstName &&

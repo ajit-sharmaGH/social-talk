@@ -1,7 +1,7 @@
 import "./Sidebar.css";
-import { AiFillHome, } from "react-icons/ai";
+import { AiFillHome } from "react-icons/ai";
 import { BsBookmarksFill } from "react-icons/bs";
-import {  FaWpexplorer } from "react-icons/fa";
+import { FaWpexplorer } from "react-icons/fa";
 import { BiLogOut } from "react-icons/bi";
 
 import { NavLink } from "react-router-dom";
@@ -9,11 +9,14 @@ import { useTheme } from "../../Context/ThemeContext";
 import { useAuth } from "../../Context/AuthContext";
 import { warning } from "../../Pages/Services/ToastService";
 import { useBookMark } from "../../Context/BookmarkContext";
-import { MdOutlineAccountCircle } from "react-icons/md";
+import { useMainContext } from "../../Context/MainContext";
 const Sidebar = () => {
   const { theme } = useTheme();
   const { setIsLoggedIn } = useAuth();
   const { bookmark } = useBookMark();
+  const {
+    dataState: { users },
+  } = useMainContext();
   const getActiveColor = ({ isActive }) => {
     if (theme) {
       return {
@@ -27,10 +30,16 @@ const Sidebar = () => {
       };
     }
   };
+  const loginUser = JSON.parse(localStorage.getItem("socialUsers"));
+
+  const loggedInUser = users?.find(
+    (user) => user.username === loginUser.username
+  );
+
   const handleLogout = () => {
     setIsLoggedIn(false);
-    localStorage.removeItem("socialToken");
-    localStorage.removeItem("users");
+    localStorage.removeItem("token");
+    localStorage.removeItem("socialUsers");
     warning("Logged Out");
   };
   return (
@@ -43,7 +52,10 @@ const Sidebar = () => {
             theme && "navLink-in-darkBg"
           }`}
         >
-          <AiFillHome /> Home
+          <div className="flex-center">
+            <AiFillHome />
+            &nbsp; <span>Home</span>{" "}
+          </div>
         </NavLink>
 
         <NavLink
@@ -53,7 +65,10 @@ const Sidebar = () => {
             theme && "navLink-in-darkBg"
           }`}
         >
-          <FaWpexplorer /> Explore
+          <div className="flex-center">
+            <FaWpexplorer />
+            &nbsp; <span>Explore</span>{" "}
+          </div>
         </NavLink>
 
         <NavLink
@@ -68,37 +83,43 @@ const Sidebar = () => {
               Bookmarked &nbsp;<small>{`[ ${bookmark.length} ]`}</small>
             </>
           ) : (
-            <>
-              <BsBookmarksFill /> Bookmarks{" "}
-            </>
+            <div className="flex-center">
+              <BsBookmarksFill />
+              &nbsp; <span>Bookmarks</span>{" "}
+            </div>
           )}
         </NavLink>
-        <NavLink
-          to="/Profile"
-          style={getActiveColor}
-          className={`navLink-decoration navLink-sidebar ${
-            theme && "navLink-in-darkBg"
-          }`}
-        >
-          <MdOutlineAccountCircle /> Profile
-        </NavLink>
+
         <NavLink
           onClick={handleLogout}
           className={`navLink-decoration navLink-sidebar ${
             theme && "navLink-in-darkBg"
           }`}
         >
-          <BiLogOut /> Log Out
+          <div className="flex-center">
+            <BiLogOut />
+            &nbsp; <span>Log Out</span>{" "}
+          </div>
         </NavLink>
       </nav>
       <NavLink
-        // to="/Profile"
-        // style={getActiveColor}
-        // className={`navLink-decoration flex navLink-sidebar ${
-        //   theme && "navLink-in-darkBg"
-        // }`}
+        to="/Profile"
+        style={getActiveColor}
+        className={`navLink-decoration flex navLink-sidebar ${
+          theme && "navLink-in-darkBg"
+        }`}
       >
-        {/* <div className="profile-img"></div> */}
+        <img
+          src={loggedInUser?.profile_photo}
+          className="profile-img mr-1"
+          alt=""
+        />
+        <aside>
+          <h4>
+            {loggedInUser?.firstName} {loggedInUser?.lastName}
+          </h4>
+          <small>@{loggedInUser?.userHandler} </small>
+        </aside>
       </NavLink>
     </div>
   );

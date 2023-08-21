@@ -13,7 +13,7 @@
     padding: 2rem;
     width: 30rem;
     background-color: var(--dark);
-    color: inherit;
+    color: var(--white);
     font-family: inherit;
     height: fit-content;
     font-size: large;
@@ -34,7 +34,8 @@
     height: 4rem;
     width: 4rem;
     border-radius: 50%;
-    background-size: contain;
+    background-size: cover;
+    box-shadow: 0px 0px 8px var(--transparent-black);
 }
 
 .image-container {
@@ -43,8 +44,9 @@
 
 .profile-camera-icon {
     position: absolute;
-    bottom: 5px;
-    right: 3px;
+    bottom: 3px;
+    right: -4px;
+    color:var(--white);
 
 }
 
@@ -58,6 +60,7 @@
     font-size: 15px;
     border-bottom: 1px solid var(--black);
     background-color: transparent;
+    color:inherit;
 
 }
 

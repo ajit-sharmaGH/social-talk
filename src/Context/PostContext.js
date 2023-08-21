@@ -1,15 +1,47 @@
+import { v4 as uuid } from "uuid"; 
 import axios from "axios";
 import { remove, success } from "../Pages/Services/ToastService";
 
+// export const createPostHandler = async (postData, token, dataDispatch) => {
+//   try {
+//     const {
+//       status,
+//       data: { posts },
+//     } = await axios.post(
+//       `/api/posts`,
+//       {
+//         postData,
+//       },
+//       {
+//         headers: {
+//           authorization: token,
+//         },
+//       }
+//     );
+//     if (status === 200 || status === 201) {
+//       dataDispatch({ type: "POST_OPERATIONS", payload: posts });
+//       success("Post Added");
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
 export const createPostHandler = async (postData, token, dataDispatch) => {
   try {
+    // Generate a unique _id for the new post
+    const newPost = {
+      ...postData,
+      _id: uuid(),
+    };
+
     const {
       status,
       data: { posts },
     } = await axios.post(
       `/api/posts`,
       {
-        postData,
+        postData: newPost, 
       },
       {
         headers: {
@@ -25,6 +57,7 @@ export const createPostHandler = async (postData, token, dataDispatch) => {
     console.log(error);
   }
 };
+
 
 export const likePostHandler = async (postId, token, dataDispatch) => {
   try {

@@ -10,7 +10,7 @@
     height: 3rem;
     width:3rem;
     border-radius: 50%;
-    background-color: var(--gray);
+    background-size: contain;
 }
 .navLink-sidebar {
   padding: 0.5rem 1rem;
